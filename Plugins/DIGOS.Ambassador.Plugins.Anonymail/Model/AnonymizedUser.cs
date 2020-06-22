@@ -22,6 +22,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using DIGOS.Ambassador.Core.Database.Entities;
 using JetBrains.Annotations;
 
 namespace DIGOS.Ambassador.Plugins.Anonymail.Model
@@ -31,7 +32,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
     /// </summary>
     [PublicAPI]
     [Table("AnonymizedUsers", Schema = "AnonymailModule")]
-    public class AnonymizedUser
+    public class AnonymizedUser : EFEntity
     {
         /// <summary>
         /// Gets the identity hash of the user. This value is deterministic on a per-user basis, and is computed as the

@@ -22,6 +22,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using DIGOS.Ambassador.Core.Database.Entities;
 using JetBrains.Annotations;
 
 namespace DIGOS.Ambassador.Plugins.Anonymail.Model
@@ -31,7 +32,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
     /// </summary>
     [PublicAPI]
     [Table("AnonymousMails", Schema = "AnonymailModule")]
-    public class AnonymousMail
+    public class AnonymousMail : EFEntity
     {
         /// <summary>
         /// Gets the author of the mail.

@@ -22,6 +22,7 @@
 
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using DIGOS.Ambassador.Core.Database.Entities;
 using DIGOS.Ambassador.Plugins.Core.Model.Servers;
 using JetBrains.Annotations;
 
@@ -32,7 +33,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
     /// </summary>
     [PublicAPI]
     [Table("AnonymousMailboxes", Schema = "AnonymailModule")]
-    public class AnonymousMailbox
+    public class AnonymousMailbox : EFEntity
     {
         /// <summary>
         /// Gets the server that the mailbox is on.
