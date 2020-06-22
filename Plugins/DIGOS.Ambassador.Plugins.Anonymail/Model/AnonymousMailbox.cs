@@ -48,12 +48,12 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
         /// <summary>
         /// Gets the mails delivered to the mailbox.
         /// </summary>
-        public List<AnonymousMail> Mails { get; private set; } = null!;
+        public virtual List<AnonymousMail> Mails { get; private set; } = null!;
 
         /// <summary>
-        /// Gets a list of users who are blocked from sending mail to this mailbox.
+        /// Gets a list of users who have some form of special treatment by this mailbox.
         /// </summary>
-        public List<AnonymizedUser> BlockedUsers { get; private set; } = null!;
+        public virtual List<AnonymousMailboxUser> MailboxUsers { get; private set; } = null!;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousMailbox"/> class.
@@ -73,7 +73,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
             this.Server = server;
             this.DiscordChannelID = discordChannelID;
             this.Mails = new List<AnonymousMail>();
-            this.BlockedUsers = new List<AnonymizedUser>();
+            this.MailboxUsers = new List<AnonymousMailboxUser>();
         }
     }
 }
