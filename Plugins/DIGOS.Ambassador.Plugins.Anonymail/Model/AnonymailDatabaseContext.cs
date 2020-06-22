@@ -53,5 +53,15 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
             : base(SchemaName, contextOptions)
         {
         }
+
+        /// <inheritdoc />
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AnonymizedUser>()
+                .HasIndex(u => u.IdentityHash)
+                .IsUnique();
+        }
     }
 }
