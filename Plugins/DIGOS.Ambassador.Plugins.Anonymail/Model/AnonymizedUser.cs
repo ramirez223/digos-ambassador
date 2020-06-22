@@ -48,13 +48,13 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
         /// the ability for the recipients of anonymous mail to block or restrict certain users from using the mailbox.
         /// It does, however, prevent accidental unmasking of users by database administrators or other passersby.
         /// </summary>
-        public byte[] IdentityHash { get; }
+        public string IdentityHash { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnonymizedUser"/> class.
         /// </summary>
         /// <param name="identityHash">The identity hash.</param>
-        public AnonymizedUser(byte[] identityHash)
+        public AnonymizedUser(string identityHash)
         {
             this.IdentityHash = identityHash;
         }

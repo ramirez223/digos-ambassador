@@ -30,7 +30,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Migrations
                 {
                     ID = table.Column<long>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdentityHash = table.Column<Guid>(nullable: false)
+                    IdentityHash = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

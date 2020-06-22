@@ -15,7 +15,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DIGOS.Ambassador.Plugins.Anonymail.Migrations
 {
     [DbContext(typeof(AnonymailDatabaseContext))]
-    [Migration("20200622195550_InitialCreate")]
+    [Migration("20200622203041_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,9 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-                    b.Property<Guid>("IdentityHash")
-                        .HasColumnType("uuid");
+                    b.Property<string>("IdentityHash")
+                        .IsRequired()
+                        .HasColumnType("text");
                     b.HasKey("ID");
                     b.HasIndex("IdentityHash")
                         .IsUnique();

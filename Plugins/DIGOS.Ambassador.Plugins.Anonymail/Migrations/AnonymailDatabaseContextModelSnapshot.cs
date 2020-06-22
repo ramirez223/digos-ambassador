@@ -36,8 +36,9 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<Guid>("IdentityHash")
-                        .HasColumnType("uuid");
+                    b.Property<string>("IdentityHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 
