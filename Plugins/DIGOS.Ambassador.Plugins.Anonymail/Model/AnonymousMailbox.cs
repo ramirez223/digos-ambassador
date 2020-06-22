@@ -51,6 +51,11 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
         public List<AnonymousMail> Mails { get; private set; } = null!;
 
         /// <summary>
+        /// Gets a list of users who are blocked from sending mail to this mailbox.
+        /// </summary>
+        public List<AnonymizedUser> BlockedUsers { get; private set; } = null!;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousMailbox"/> class.
         /// </summary>
         /// <remarks>Required by EF core.</remarks>
@@ -68,6 +73,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
             this.Server = server;
             this.DiscordChannelID = discordChannelID;
             this.Mails = new List<AnonymousMail>();
+            this.BlockedUsers = new List<AnonymizedUser>();
         }
     }
 }
