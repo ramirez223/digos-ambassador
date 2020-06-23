@@ -35,18 +35,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
     public class AnonymizedUser : EFEntity
     {
         /// <summary>
-        /// Gets the identity hash of the user. This value is deterministic on a per-user basis, and is computed as the
-        /// SHA512 hash of the concatenation of the user's database ID, a semicolon, and the user's Discord ID. That is,
-        /// for a user with the ID 1 and the Discord ID 135347310845624320, their identity hash would be computed as
-        ///
-        /// sha512("1:135347310845624320")
-        ///
-        /// This serves to decouple the user's actual identity from the anonymized user identity, while still
-        /// maintaining a deterministic result from a real user to an anonymized user.
-        ///
-        /// This is not a perfect solution, and a true anonymization is not possible while at the same time maintaining
-        /// the ability for the recipients of anonymous mail to block or restrict certain users from using the mailbox.
-        /// It does, however, prevent accidental unmasking of users by database administrators or other passersby.
+        /// Gets the identity hash of the user.
         /// </summary>
         public string IdentityHash { get; }
 

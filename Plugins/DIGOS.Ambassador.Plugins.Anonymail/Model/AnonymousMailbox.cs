@@ -56,6 +56,11 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
         public virtual List<AnonymousMailboxUser> MailboxUsers { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the name of the mailbox.
+        /// </summary>
+        public string Name { get; internal set; } = null!;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousMailbox"/> class.
         /// </summary>
         /// <remarks>Required by EF core.</remarks>
@@ -67,10 +72,12 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Model
         /// Initializes a new instance of the <see cref="AnonymousMailbox"/> class.
         /// </summary>
         /// <param name="server">The server the mailbox is on.</param>
+        /// <param name="name">The name of the mailbox.</param>
         /// <param name="discordChannelID">The channel ID the mailbox delivers to.</param>
-        public AnonymousMailbox(Server server, long discordChannelID)
+        public AnonymousMailbox(Server server, string name, long discordChannelID)
         {
             this.Server = server;
+            this.Name = name;
             this.DiscordChannelID = discordChannelID;
             this.Mails = new List<AnonymousMail>();
             this.MailboxUsers = new List<AnonymousMailboxUser>();
