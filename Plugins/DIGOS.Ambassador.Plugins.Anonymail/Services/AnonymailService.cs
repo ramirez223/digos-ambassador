@@ -39,7 +39,7 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Services
     /// Contains business logic for handling anonymous mails.
     /// </summary>
     [PublicAPI]
-    public class AnonymailService
+    public class AnonymailService : ICommittable
     {
         private readonly AnonymailDatabaseContext _database;
 
@@ -280,6 +280,12 @@ namespace DIGOS.Ambassador.Plugins.Anonymail.Services
             }
 
             return builder.ToString();
+        }
+
+        /// <inheritdoc />
+        public async Task CommitAsync(CancellationToken ct = default)
+        {
+            await _database.SaveChangesAsync(ct);
         }
     }
 }
